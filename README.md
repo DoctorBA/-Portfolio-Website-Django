@@ -23,7 +23,6 @@ This is a portfolio website built using **Django 4**, **Django REST Framework 3*
 
 -   Python
 -   Django and Django Rest Framework
--   Djoser
 -   Bootstrap
 -   Javascript
 -   PostgreSQL
@@ -179,4 +178,4 @@ Go to http://127.0.0.1:8000/admin to access the Django Admin interface and sign 
 
 ## Copyright and License
 
-Copyright © 2023 Mazhar Vladislav. Code released for certification at TeachMeSkills Academy.
+Copyright © 2023 Mazhar Uladzislau. Code released for certification at TeachMeSkills Academy.

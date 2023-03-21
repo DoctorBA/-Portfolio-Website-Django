@@ -29,7 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser',
+    'accounts',
+    #'api',
+    'catalog',
+      
 ]
 
 
@@ -96,11 +99,6 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 50,
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',  # djoser
-
-
-    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ]
@@ -116,49 +114,6 @@ DEFAULT_FROM_EMAIL = env.str('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 
-
-# DJOSER CONFIG
-DJOSER = {
-    "LOGIN_FIELD": "email",
-    "USER_CREATE_PASSWORD_RETYPE": False,
-    "USERNAME_CHANGED_EMAIL_CONFIRMATION": False,
-    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
-    "SEND_CONFIRMATION_EMAIL": False,
-    "SET_USERNAME_RETYPE": False,
-    "SET_PASSWORD_RETYPE": False,
-    "USERNAME_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
-    "PASSWORD_RESET_CONFIRM_URL": "user/reset_password_confirm/{uid}/{token}",
-    "PASSWORD_RESET_CONFIRM_RETYPE": True,
-    "ACTIVATION_URL": "activate/{uid}/{token}",
-    "SEND_ACTIVATION_EMAIL": True,
-    "SOCIAL_AUTH_TOKEN_STRATEGY": "djoser.social.token.jwt.TokenStrategy",
-    "SOCIAL_AUTH_ALLOWED_REDIRECT_URIS": [
-        "your redirect url",
-        "your redirect url",
-    ],
-    "SERIALIZERS": {
-        "user_create": "accounts.serializers.UserCreateSerializer",  # custom serializer
-        #"user_create": "djoser.serializers.UserCreateSerializer,"
-        "user": "djoser.serializers.UserSerializer",
-        "current_user": "djoser.serializers.UserSerializer",
-        "user_delete": "djoser.serializers.UserSerializer",
-        'password_reset': 'djoser.serializers.UsernameResetConfirmSerializer',
-        'password_reset_confirm': 'djoser.serializers.PasswordResetConfirmSerializer',
-    },
-    "EMAIL": {
-        'confirmation': 'djoser.email.ConfirmationEmail',
-        'password_reset': 'djoser.email.PasswordResetEmail',
-        'password_changed_confirmation': 'djoser.email.PasswordChangedConfirmationEmail',
-    },
-    "CONSTANTS": {
-        'messages': 'djoser.constants.Messages',
-    },
-}
-
-
-# CORS HEADERS
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
 
 # Internationalization
 
@@ -179,5 +134,10 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/source/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'source')
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.User' #new model user
