@@ -2,12 +2,13 @@
 
 This is a portfolio website built using **Django 4**, **Django REST Framework 3**, **Bootstrap5** that uses a **PostgreSQL** database to store data.
 
-![plot]()
+![plot](http://joxi.ru/gmvD1aKc0nEeWA.jpg)
 
 ## Table of Contents 
 - [Features](#Features)  
 - [Technology Stack](#Technology-Stack)
 - [Prerequisites](#prerequisites)
+- [API urls](#API-urls)
 - [Installation](#installation)
 - [Running the application](#run-the-application)
 - [Adding data to the application](#add-data-to-the-application)
@@ -17,16 +18,29 @@ This is a portfolio website built using **Django 4**, **Django REST Framework 3*
 ## Features:
 
 -   registering and logging to user account
+-   view product catalog
 
 
 ## Technology Stack:
 
 -   Python
 -   Django and Django Rest Framework
--   Djoser
 -   Bootstrap
--   Javascript
 -   PostgreSQL
+
+
+## API urls:
+
+localhost:8000/api/candles/
+localhost:8000/api/candles/<candle_id>/
+localhost:8000/api/soaps/
+localhost:8000/api/soaps/<soap_id>/
+localhost:8000/api/creams/
+localhost:8000/api/creams/<cream_id>/
+localhost:8000/api/manufacturers/
+localhost:8000/api/manufacturers/<manufacturer_id>/
+localhost:8000/api/aromas/
+localhost:8000/api/aromas/<aroma_id>/
 
 
 ## Prerequisites
@@ -179,4 +193,4 @@ Go to http://127.0.0.1:8000/admin to access the Django Admin interface and sign 
 
 ## Copyright and License
 
-Copyright © 2023 Mazhar Vladislav. Code released for certification at TeachMeSkills Academy.
+Copyright © 2023 Mazhar Uladzislau. Code released for certification at TeachMeSkills Academy.
