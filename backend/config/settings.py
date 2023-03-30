@@ -29,10 +29,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'accounts',
-    #'api',
+    'accounts',    
     'catalog',
-      
+    'goods',
+    'api',      
 ]
 
 
@@ -97,11 +97,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
 
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 50,
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 50,
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ]
+        'rest_framework.permissions.AllowAny',
+        #'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 
