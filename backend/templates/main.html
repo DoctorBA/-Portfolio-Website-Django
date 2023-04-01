@@ -13,6 +13,16 @@
                         <h1 class="font-weight-light">Catalog {{ soaps }}</h1>
                     {% elif creams %} 
                         <h1 class="font-weight-light">Catalog {{ creams }}</h1>
+                    {% elif not goods %}     
+                        <h1 class="font-weight-light">Search not founds</h1>
+                        <div class="container py-3">
+                            <a type="button" href="{% url 'catalog-index' %}" class="btn btn-outline-dark btn-sm"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                                </svg>
+                                Home
+                            </a>
+                        </div> 
                     {% else %}  
                         <h1 class="font-weight-light">Catalog goods</h1>      
                     {% endif %}    
@@ -70,17 +80,19 @@
         
         
         <div class="container" role="toolbar" aria-label="Toolbar with button groups">
+            {% if goods.has_previous %}
+                <div class="btn-group" role="group" aria-label="First group">
+                    <a type="button" class="btn btn-dark" href="?catalog-page={{ goods.previous_page_number }}">Back</a>
+                </div>
+            {% endif %}
             <div class="btn-group" role="group" aria-label="First group">
-                <button type="button" class="btn btn-dark">Next</button>
+                <label type="button" class="btn btn-secondary">{{ goods.number }}</label>
             </div>
-            <div class="btn-group" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary">1</button>
-                <button type="button" class="btn btn-secondary">2</button>
-                <button type="button" class="btn btn-secondary">3</button>
-            </div>
-            <div class="btn-group" role="group" aria-label="Second group">
-                <button type="button" class="btn btn-dark">Next</button>
-            </div>
+            {% if goods.has_next %}
+                <div class="btn-group" role="group" aria-label="Second group">
+                    <a type="button" class="btn btn-dark" href="?catalog-page={{ goods.next_page_number }}">Next</a>
+                </div>
+            {% endif %}
         </div>
         <!-- END nnavigation --> 
     </main>
