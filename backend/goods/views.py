@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 from catalog.models import Manufacturer, Aroma
 from .models import Candle, Soap, Cream
@@ -10,11 +11,14 @@ class ManufacturerGoodsView(TemplateView):
     
     def get(self, request, name):
         manufacturer = Manufacturer.objects.get(name=name)
-        goods = (
+        goods_list = (
             Candle.objects.filter(manufacturer=manufacturer)
             .union(Soap.objects.filter(manufacturer=manufacturer))
             .union(Cream.objects.filter(manufacturer=manufacturer))
         )
+        paginator = Paginator(goods_list, 9)
+        page_number = request.GET.get('catalog-page')
+        goods = paginator.get_page(page_number) 
         params = {'goods': goods}
         
         return render(request, self.template_name, params)   
@@ -25,11 +29,14 @@ class AromaGoodsView(TemplateView):
     
     def get(self, request, name):
         aroma = Aroma.objects.get(name=name)
-        goods = (
+        goods_list = (
             Candle.objects.filter(aroma=aroma)
             .union(Soap.objects.filter(aroma=aroma))
             .union(Cream.objects.filter(aroma=aroma))
         )
+        paginator = Paginator(goods_list, 9)
+        page_number = request.GET.get('catalog-page')
+        goods = paginator.get_page(page_number) 
         params = {'goods': goods}
         
         return render(request, self.template_name, params)
