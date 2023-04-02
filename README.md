@@ -32,16 +32,16 @@ This is a portfolio website built using **Django 4**, **Django REST Framework 3*
 
 ## API urls:
 
-localhost:8000/api/candles/
-localhost:8000/api/candles/<candle_id>/
-localhost:8000/api/soaps/
-localhost:8000/api/soaps/<soap_id>/
-localhost:8000/api/creams/
-localhost:8000/api/creams/<cream_id>/
-localhost:8000/api/manufacturers/
-localhost:8000/api/manufacturers/<manufacturer_id>/
-localhost:8000/api/aromas/
-localhost:8000/api/aromas/<aroma_id>/
+-   localhost:8000/api/candles/
+-   localhost:8000/api/candles/<candle_id>/
+-   localhost:8000/api/soaps/
+-   localhost:8000/api/soaps/<soap_id>/
+-   localhost:8000/api/creams/
+-   localhost:8000/api/creams/<cream_id>/
+-   localhost:8000/api/manufacturers/
+-   localhost:8000/api/manufacturers/<manufacturer_id>/
+-   localhost:8000/api/aromas/
+-   localhost:8000/api/aromas/<aroma_id>/
 
 
 ## Prerequisites

@@ -4,9 +4,7 @@
     <main class="form-signin text-center container my-4">
         {% for aroma in aromas %}    
             <div class="container mt-3 col-md-4 mb-5">
-                {% if candles %}
-                {% else %}
-                {% endif %} 
+
                 <div class="card h-100 border-dark">
                     <div class="card-header">
                         <p><img src="{{ aroma.image.url }}" width="250px" height="250px"></p>
@@ -37,6 +35,6 @@
                 </div>
             </div>
         {% endfor %}          
-    </main>
+    </main>   
 </body>      
 {% endblock content %}
