@@ -24,6 +24,12 @@ class Candle(models.Model):
     def get_good_url(self):
         return reverse('good', args=[self.title])
     
+    def add_to_favorite(self):
+        return reverse('favorite-add', args=[self.title])
+    
+    def del_to_favorite(self):
+        return reverse('favorite-del', args=[self.title])
+    
 
 class Soap(models.Model):
     title = models.CharField(max_length=50, unique=True)
@@ -45,6 +51,12 @@ class Soap(models.Model):
     
     def get_good_url(self):
         return reverse('good', args=[self.title])
+    
+    def add_to_favorite(self):
+        return reverse('favorite-add', args=[self.title])
+    
+    def del_to_favorite(self):
+        return reverse('favorite-del', args=[self.title])
  
  
 class Cream(models.Model):
@@ -67,3 +79,9 @@ class Cream(models.Model):
     
     def get_good_url(self):
         return reverse('good', args=[self.title])
+    
+    def add_to_favorite(self):
+        return reverse('favorite-add', args=[self.title])
+    
+    def del_to_favorite(self):
+        return reverse('favorite-del', args=[self.title])

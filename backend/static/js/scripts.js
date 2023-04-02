@@ -5,3 +5,14 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+/* Favorites control*/
+$(document).ready(function() {
+    var options = {
+        html: true,
+        title: "",
+        content: $('[data-name="popover-content"]')
+    }
+    var exampleEl = document.getElementById('cart')
+    var popover = new bootstrap.Popover(exampleEl, options)
+})

@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from django.contrib.auth.models import User
 from catalog.models import Manufacturer, Aroma
 from .models import Candle, Soap, Cream
 
@@ -68,3 +71,18 @@ class AromaView(TemplateView):
         params = {'aromas': [aromas]}
         
         return render(request, self.template_name, params)    
+    
+#<-- Favorite View -->     
+class FavoriteAddView(TemplateView):
+    
+    @method_decorator(login_required)
+    def get(self, request, title):
+        good = (
+            Candle.objects.filter(title=title)
+            .union(Soap.objects.filter(title=title))
+            .union(Cream.objects.filter(title=title))
+        )
+        favorite = request.user
+        favorite.products.add(good)
+        
+        return redirect('catalog-index')
