@@ -20,6 +20,7 @@ This is a portfolio website built using **Django 4**, **Django REST Framework 3*
 -   registering and logging to user account
 -   view product catalog
 -   catalog search
+-   User favorite
 
 
 ## Technology Stack:
