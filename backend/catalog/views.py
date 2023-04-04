@@ -106,4 +106,18 @@ class SearchView(TemplateView):
         
         return render(request, self.template_name, params)       
     
+ 
+ #<-- Catalog favorite -->  
+class FavoriteView(TemplateView):
+    template_name = 'main.html'
     
+    def get(self, request):
+        goods_list = request.user.get_favorite_list()
+        print(goods_list)
+        paginator = Paginator(goods_list, 9)
+        page_number = request.GET.get('catalog-page')
+        goods = paginator.get_page(page_number) 
+        favorite = "favorites"
+        params = {'goods': goods, 'favorite': favorite}
+        
+        return render(request, self.template_name, params)

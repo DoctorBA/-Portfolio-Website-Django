@@ -14,7 +14,7 @@ class Candle(models.Model):
     
     def __str__(self):
         return self.title
-        
+            
     def display_volume(self):
         return ', '.join([f'{volume.weight} {volume.unit}' for volume in self.volume.all()])
     
@@ -42,7 +42,7 @@ class Soap(models.Model):
     
     def __str__(self):
         return self.title
-        
+    
     def display_volume(self):
         return ', '.join([f'{volume.weight} {volume.unit}' for volume in self.volume.all()])
     
